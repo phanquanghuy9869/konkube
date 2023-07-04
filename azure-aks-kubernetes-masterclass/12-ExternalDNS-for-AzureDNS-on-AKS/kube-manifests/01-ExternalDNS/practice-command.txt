@@ -1,0 +1,2 @@
+az account show --query "tenantId" ===> tenantId
+az account show --query "id"  ===> subscriptionId
