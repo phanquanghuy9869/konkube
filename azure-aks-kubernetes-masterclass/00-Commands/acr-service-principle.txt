@@ -1,0 +1,13 @@
+# Create image pull secret
+
+kubectl create secret docker-registry <secret-name> \
+    --namespace <namespace> \
+    --docker-server=<container-registry-name>.azurecr.io \
+    --docker-username=<service-principal-ID> \
+    --docker-password=<service-principal-password>
+
+kubectl create secret docker-registry acrdemo2ss-secret \
+    --namespace default \
+    --docker-server=huyacraks.azurecr.io \
+    --docker-username=97f00a2f-12e5-4135-ab1e-97f50f2364ca \
+    --docker-password=SEl8Q~Dw~voQ3PVg-BwnlBfpttfcEgaLNfCUCblz    

@@ -8,7 +8,11 @@ ACR_NAME=huyacraks
 SERVICE_PRINCIPAL_NAME=acr-sp-demo
 
 # Obtain the full registry ID for subsequent command args
-ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+#ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+# For Gitbash we had to add a slash before registry ID due to this: https://stackoverflow.com/questions/69453392/az-tag-update-error-missingsubscription-the-request-did-not-have-a-subscripti
+ACR_REGISTRY_ID="/$(az acr show --name $ACR_NAME --query id --output tsv)"
+
+echo "Acr registry ID: $ACR_REGISTRY_ID"
 
 # Create the service principal with rights scoped to the registry.
 # Default permissions are for docker pull access. Modify the '--role'
