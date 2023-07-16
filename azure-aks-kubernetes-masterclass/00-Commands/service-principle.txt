@@ -1,0 +1,25 @@
+# Need to add // before subscription in window platform
+---
+az ad sp create-for-rbac --name ViedocAks \
+                         --role reader \
+                         --scopes //subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
+az account set --subscription f01bf405-f0c0-48b3-b69d-c864b292bec9
+                         
+az ad sp create-for-rbac --name my-principle \
+                         --role Contributor \
+                         --scopes //subscriptions/f01bf405-f0c0-48b3-b69d-c864b292bec9/resourceGroups/internaltest-appconfig/providers/Microsoft.AppConfiguration/configurationStores/we-dev5-appconfig
+
+--- app config dev 5                          
+az ad sp create-for-rbac --name idpak-principle \
+                         --role "App Configuration Data Reader" \
+                         --scopes //subscriptions/f01bf405-f0c0-48b3-b69d-c864b292bec9/resourceGroups/internaltest-appconfig/providers/Microsoft.AppConfiguration/configurationStores/we-dev5-appconfig
+
+--- we local
+az ad sp create-for-rbac --name test-principle \
+                         --role Reader \
+                         --scopes //subscriptions/4fe79603-bc86-4615-adb5-a8df77e381c6/resourceGroups/rs1/providers/Microsoft.AppConfiguration/configurationStores/my-rs-ac
+
+Note: Azure appconfig require  service principle with role "App Configuration Data Reader" in order to read                      
+Key Vault Secrets User
+
+we-global-vault
