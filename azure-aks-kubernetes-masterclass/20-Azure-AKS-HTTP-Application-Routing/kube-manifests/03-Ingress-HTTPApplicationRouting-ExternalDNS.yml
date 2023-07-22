@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-    - host: app1.7b8803340f38495c8402.centralus.aksapp.io # Add Application DNS name to be registered in DNS
+    - host: app1.431da762fc5d41879964.australiaeast.aksapp.io # Add Application DNS name to be registered in DNS
       http:
         paths:
           - path: /
